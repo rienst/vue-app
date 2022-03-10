@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { readonly, ref } from 'vue'
 
-interface User {
+export interface User {
   id: string
   name: string
   email?: string
@@ -14,7 +14,7 @@ const useUsersStore = defineStore('users', () => {
     users.value.push(user)
   }
 
-  return { users, addUser }
+  return readonly({ users, addUser })
 })
 
 export default useUsersStore
